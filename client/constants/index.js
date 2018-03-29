@@ -1,2 +1,3 @@
 import * as demo from "./demo";
-export { demo };
+import * as main from "./main";
+export { demo, main };

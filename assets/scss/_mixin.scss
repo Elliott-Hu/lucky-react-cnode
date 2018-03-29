@@ -1,0 +1,171 @@
+@mixin text-ellipse() {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin mult-text-ellipse($number) {
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin clearfix() {
+  &:after {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+@mixin border-box() {
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@mixin absolute-center() {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-direction($value: row) {
+  flex-direction: $value;
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  -moz-flex-direction: $value;
+}
+
+@mixin align-items($value: stretch) {
+  // Row位置的定义
+  @if $value==flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  }
+  @else if $value==flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  }
+  @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin align-self($value: auto) {
+  // Col位置的定义
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value==flex-start {
+    -ms-flex-item-align: start;
+  }
+  @else if $value==flex-end {
+    -ms-flex-item-align: end;
+  }
+  @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+@mixin flex-wrap($value: nowrap) {
+  //是否换行
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value==nowrap {
+    -ms-flex-wrap: none;
+  }
+  @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+  -webkit-box-flex: $fg;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
+  max-width: $fb;
+}
+
+@mixin font-dpr($font-size) {
+  font-size: $font-size;
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+@mixin border-thin($color: $nf-dark, $style: solid) {
+  @include border-bottom-thin($color, $style);
+  @include border-top-thin($color, $style);
+  @include border-left-thin($color, $style);
+  @include border-right-thin($color, $style);
+}
+
+@mixin border-bottom-thin($color: $nf-dark, $style: solid) {
+  border-bottom: 1px $style $color;
+  [data-dpr="2"] & {
+    border-bottom: 2px $style $color;
+  }
+  [data-dpr="3"] & {
+    border-bottom: 3px $style $color;
+  }
+}
+
+@mixin border-top-thin($color: $nf-dark, $style: solid) {
+  border-top: 1px $style $color;
+  [data-dpr="2"] & {
+    border-top: 2px $style $color;
+  }
+  [data-dpr="3"] & {
+    border-top: 3px $style $color;
+  }
+}
+
+@mixin border-left-thin($color: $nf-dark, $style: solid) {
+  border-left: 1px $style $color;
+  [data-dpr="2"] & {
+    border-left: 2px $style $color;
+  }
+  [data-dpr="3"] & {
+    border-left: 3px $style $color;
+  }
+}
+
+@mixin border-right-thin($color: $nf-dark, $style: solid) {
+  border-right: 1px $style $color;
+  [data-dpr="2"] & {
+    border-right: 2px $style $color;
+  }
+  [data-dpr="3"] & {
+    border-right: 3px $style $color;
+  }
+}

@@ -9,7 +9,7 @@ import * as actions from "@actions";
  */
 export const mapDispatchToProps = actions => {
   return dispatch => {
-    let result = Object.keys(actions).map(reducer => {
+    let $actions = Object.keys(actions).map(reducer => {
       return [reducer, actions[reducer]];
     }).reduce((prev, reducer) => {
       return Object.assign(prev, { 
@@ -20,7 +20,7 @@ export const mapDispatchToProps = actions => {
         }, {})
       });
     }, {});
-    return result;
+    return { $actions };
   };
 };
 

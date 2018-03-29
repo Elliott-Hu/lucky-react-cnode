@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const config = {
   mode: "development",
   devServer: {
@@ -21,7 +24,32 @@ const config = {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loaders: ["babel-loader"]
+      use: ["babel-loader"]
+    }, {
+      test: /\.scss|\.sass|\.css$/,
+      use: [
+        "style-loader", 
+        "css-loader",  
+        {
+          loader: "postcss-loader",
+          options: {
+            ident: "postcss",
+            plugins: loader => [
+              require("autoprefixer"),
+              require("postcss-px2rem")({ remUnit: 75 })
+            ]
+          }
+        },
+        "sass-loader", 
+        {
+          loader: "sass-resources-loader",
+          options: {
+            resources: [
+              path.join(__dirname, "assets/scss/common.scss"),
+            ]
+          }
+        }
+      ]
     }]
   },
 }

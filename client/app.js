@@ -1,13 +1,23 @@
+require("normalize.css/normalize.css");
+require("../assets/scss/_global.scss");
+
 import React from "react";
 import ReactDom from "react-dom";
 
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducers from "@reducers";
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
 
+import reducers from "@reducers";
+import sagas from "@sagas";
 import PageMain from "@pages/main";
 
-const store = createStore(reducers);
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware)
+);
+sagaMiddleware.run(sagas);
 
 class App extends React.Component {
   render() {
