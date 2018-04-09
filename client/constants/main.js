@@ -1,3 +1,4 @@
 export const GET_TOPICS = "GET_TOPICS";
 export const GET_TOPICS_SUCCESS = "GET_TOPICS_SUCCESS";
 export const GET_TOPICS_FAIL = "GET_TOPICS_FAIL";
+export const CLEAR_TOPICS = "CLEAR_TOPICS";

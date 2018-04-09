@@ -1,11 +1,7 @@
 require("./topic.scss");
 
 import React from "react";
-
-const tagMap = {
-  "share": "分享",
-  "ask": "问答",
-}
+import { channel } from "@config/description";
 
 export default props => {
   const { author, tab, top, title, content } = props;
@@ -21,11 +17,11 @@ export default props => {
             backgroundSize     : "100% auto"
           }}
         ></div>
-        <div class="author-title">{ author.loginname }</div>
+        <div className="author-title">{ author.loginname }</div>
       </div>
       <div className="topic-tags">
-        { top ? <span className="tag-top">置顶</span> : null }
-        <span>{ tagMap[tab] || tab }</span>
+        { top && <span className="tag-top">置顶</span> }
+        <span>{ channel.name[tab] || tab }</span>
       </div>
       <h4 className="topic-title">{ title }</h4>
       <p className="topic-content">{ content.slice(0, 100) }</p>

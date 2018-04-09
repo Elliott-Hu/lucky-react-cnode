@@ -13,6 +13,7 @@ export function* getTopics() {
       yield put({
         type: constants.main.GET_TOPICS_SUCCESS,
         topics: response.data,
+        tab, page
       })
     } catch (error) {
       yield put({

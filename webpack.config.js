@@ -1,11 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const webpack = require("webpack");
 
 const config = {
   mode: "development",
   devServer: {
     port: "1688",
-    host: "192.168.0.103",
+    host: "192.168.0.105",
     inline: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -14,11 +15,11 @@ const config = {
   entry: {
     bundle: [
       "./client/app.js"
-    ]
+    ],
   },
   output: {
     filename: "[name].js",
-    publicPath: "http://192.168.0.103:1688/dist"
+    publicPath: "http://192.168.0.105:1688/dist"
   },
   module: {
     rules: [{
@@ -28,8 +29,8 @@ const config = {
     }, {
       test: /\.scss|\.sass|\.css$/,
       use: [
-        "style-loader", 
-        "css-loader",  
+        "style-loader",
+        "css-loader",
         {
           loader: "postcss-loader",
           options: {
@@ -40,7 +41,7 @@ const config = {
             ]
           }
         },
-        "sass-loader", 
+        "sass-loader",
         {
           loader: "sass-resources-loader",
           options: {
@@ -52,6 +53,13 @@ const config = {
       ]
     }]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    })
+  ]
 }
 
 module.exports = config;

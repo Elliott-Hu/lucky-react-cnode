@@ -2,9 +2,16 @@ require("./topics.scss");
 
 import React from "react";
 import Topic from "./ui/topic";
+import Waterfall from "@components/common/waterfall/";
+
 
 export default props => (
-  <div class="main-topics">
+  <Waterfall 
+    className="main-topics"
+    container=".container-main"
+    loadMore={ props.loadMore }
+    currentPage={ props.currentPage }
+  >
     { 
       props.topics.map(topic => <Topic 
         key={ topic.id }
@@ -16,5 +23,5 @@ export default props => (
         content={ topic.content }
       />) 
     }
-  </div>
+  </Waterfall>
 );

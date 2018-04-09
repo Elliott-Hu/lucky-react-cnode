@@ -15,13 +15,15 @@ class ContainerMain extends React.Component {
     this.props.$actions.demo.demoAction(description);
   }
   render() {
-    console.log(this.props);
-    const { demo: { description }, main: { topics } } = this.props.$store;
+    const { demo: { description }, main: { topics, page, tab } } = this.props.$store;
     return (
       <div className="container-main">
-        <ComponentMain 
+        <ComponentMain
+          page={ page }
+          tab={ tab }
           topics={ topics }
-          getTopics={ this.props.$actions.main.getTopics } 
+          getTopics={ this.props.$actions.main.getTopics }
+          clearTopics={ this.props.$actions.main.clearTopics }
         />
       </div>
     )

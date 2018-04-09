@@ -15,7 +15,10 @@ import PageMain from "@pages/main";
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   reducers,
-  applyMiddleware(sagaMiddleware)
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(
+    sagaMiddleware,
+  ),
 );
 sagaMiddleware.run(sagas);
 
@@ -23,9 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={ store }>
-        <div className="app-wrapper">
-          <PageMain />
-        </div>
+        <PageMain />
       </Provider>
     )
   }

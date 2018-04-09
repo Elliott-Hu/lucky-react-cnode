@@ -3,5 +3,8 @@
   color: $nf-dark;
 }
 body {
-  background-color: $nf-input;
+  background-color: $nf-basic;
+}
+html, body, #root {
+  height: 100%;
 }

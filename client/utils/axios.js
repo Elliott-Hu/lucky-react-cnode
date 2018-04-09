@@ -7,7 +7,6 @@ export default async function(url, options, method) {
     url,
     method
   })
-  console.log(response);
   switch (response.status) {
     case 200:
     case 304:
