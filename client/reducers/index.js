@@ -4,4 +4,4 @@ import main from "./main";
 
 const reducers = { demo, main };
 
-export default combineReducers(reducers);
+export default reducers;

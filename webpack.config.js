@@ -6,7 +6,7 @@ const config = {
   mode: "development",
   devServer: {
     port: "1688",
-    host: "192.168.0.105",
+    host: "192.168.9.225",
     inline: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -19,7 +19,7 @@ const config = {
   },
   output: {
     filename: "[name].js",
-    publicPath: "http://192.168.0.105:1688/dist"
+    publicPath: "http://192.168.9.225:1688/dist"
   },
   module: {
     rules: [{

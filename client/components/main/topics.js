@@ -5,7 +5,7 @@ import Topic from "./ui/topic";
 import Waterfall from "@components/common/waterfall/";
 
 
-export default props => (
+const Topics = props => (
   <Waterfall 
     className="main-topics"
     container=".container-main"
@@ -25,3 +25,5 @@ export default props => (
     }
   </Waterfall>
 );
+
+export default Topics;

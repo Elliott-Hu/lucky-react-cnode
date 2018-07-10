@@ -4,7 +4,7 @@ import * as constants from "@constants";
 const initialState = {
   topics: [],
   page: 0,
-  tab: "all",
+  tab: "",
 }
 
 const actionHandlers = {

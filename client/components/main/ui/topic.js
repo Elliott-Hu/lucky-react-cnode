@@ -2,6 +2,7 @@ require("./topic.scss");
 
 import React from "react";
 import { channel } from "@config/description";
+import { Link } from "react-router-dom";
 
 export default props => {
   const { author, tab, top, title, content } = props;

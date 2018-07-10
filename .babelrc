@@ -8,6 +8,7 @@
     }
   ], "react"],
   "plugins": [
+    "syntax-dynamic-import",
     ["module-alias", [
       { "src": "./client/utils", "expose": "@utils" },
       { "src": "./client/pages", "expose": "@pages" },
@@ -18,7 +19,8 @@
       { "src": "./client/actions", "expose": "@actions" },
       { "src": "./client/sagas", "expose": "@sagas" },
       { "src": "./client/assets/scss", "expose": "@scss" },
-      { "src": "./config", "expose": "@config" }
+      { "src": "./config", "expose": "@config" },
+      { "src": "./client", "expose": "@client" }
     ]]
   ]
 }

@@ -3,6 +3,7 @@ import Topics from "./topics";
 import Tabs from "./tabs";
 
 import { channel } from "@config/description";
+import PropTypes from "prop-types";
 
 const tabs = Object.keys(channel.name).map(item => ({
   name: channel.name[item],
@@ -15,8 +16,12 @@ export default class ComponentMain extends React.PureComponent {
     super(props);
     this.handleToggleTab = this.handleToggleTab.bind(this);
   }
+  componentDidMount() {
+    console.log(this.context.router);
+  }
   handleToggleTab(value) {
-    const { getTopics, clearTopics } = this.props;
+    const { getTopics, clearTopics, history } = this.props;
+    this.context.router.history.push(`/?category=${ value }`);
     clearTopics();
     getTopics(value);
   }
@@ -29,4 +34,8 @@ export default class ComponentMain extends React.PureComponent {
       </div>
     )
   }
+}
+
+ComponentMain.contextTypes = {
+  router: PropTypes.object
 }

@@ -1,7 +1,7 @@
 require("./tabs.scss");
 import React from "react";
 
-export default (props) => (
+const Tabs = (props) => (
   <div className="main-tabs">{ 
     props.tabs.map((tab, index) => (
       <a 
@@ -12,3 +12,5 @@ export default (props) => (
     )) 
   }</div>
 )
+
+export default Tabs;
